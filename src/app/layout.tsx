@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lamarin AI",
+  title: "rAIkrut",
   description: "AI-Powered Resume Reviewer",
   icons: {
     icon: '/ic-lamarin-black.png',

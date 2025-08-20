@@ -128,32 +128,32 @@
   --card-foreground: oklch(0.2135 0.0158 244.4904);
   --popover: oklch(1.0000 0 0);
   --popover-foreground: oklch(0.2135 0.0158 244.4904);
-  --primary: oklch(0.5963 0.2413 25.3350);
+  --primary: oklch(51.045% 0.16487 263.221);
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: oklch(0.2135 0.0158 244.4904);
   --secondary-foreground: oklch(1.0000 0 0);
   --muted: oklch(0.9222 0.0013 286.3737);
   --muted-foreground: oklch(0.2135 0.0158 244.4904);
   --accent: oklch(0.9392 0.0166 250.8453);
-  --accent-foreground: oklch(0.5963 0.2413 25.3350);
-  --destructive: oklch(0.6188 0.2376 25.7658);
+  --accent-foreground: oklch(51.045% 0.16487 263.221);
+  --destructive: oklch(51.045% 0.16487 263.221);
   --destructive-foreground: oklch(1.0000 0 0);
   --border: oklch(0.9317 0.0118 231.6594);
   --input: oklch(0.9317 0.0118 231.6594);
-  --ring: oklch(0.6298 0.2208 18.9129);
-  --chart-1: oklch(0.5963 0.2413 25.3350);
-  --chart-2: oklch(0.6073 0.2428 7.0322);
-  --chart-3: oklch(0.4934 0.1995 24.8763);
-  --chart-4: oklch(0.6725 0.2160 19.8974);
-  --chart-5: oklch(0.6338 0.2098 37.3435);
+  --ring: oklch(51.045% 0.16487 263.221);
+  --chart-1: oklch(51.045% 0.16487 263.221);
+  --chart-2: oklch(51.045% 0.16487 263.221);
+  --chart-3: oklch(51.045% 0.16487 263.221);
+  --chart-4: oklch(51.045% 0.16487 263.221);
+  --chart-5: oklch(51.045% 0.16487 263.221);
   --sidebar: oklch(0.9784 0.0011 197.1387);
   --sidebar-foreground: oklch(0.2135 0.0158 244.4904);
-  --sidebar-primary: oklch(0.5963 0.2413 25.3350);
+  --sidebar-primary: oklch(51.045% 0.16487 263.221);
   --sidebar-primary-foreground: oklch(1.0000 0 0);
   --sidebar-accent: oklch(0.9392 0.0166 250.8453);
-  --sidebar-accent-foreground: oklch(0.5963 0.2413 25.3350);
+  --sidebar-accent-foreground: oklch(51.045% 0.16487 263.221);
   --sidebar-border: oklch(0.9271 0.0101 238.5177);
-  --sidebar-ring: oklch(0.6298 0.2208 18.9129);
+  --sidebar-ring: oklch(51.045% 0.16487 263.221);
   --font-sans: Poppins, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Space Mono, monospace;
@@ -178,32 +178,32 @@
   --card-foreground: oklch(0.8853 0 0);
   --popover: oklch(0 0 0);
   --popover-foreground: oklch(0.9328 0.0025 228.7857);
-  --primary:  #ED0226;
+  --primary:  #315fc3;
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: oklch(0.9622 0.0035 219.5331);
   --secondary-foreground: oklch(0.2135 0.0158 244.4904);
   --muted: oklch(0.2090 0 0);
   --muted-foreground: oklch(0.5637 0.0078 247.9662);
-  --accent: oklch(0.1989 0.0614 24.6590);
-  --accent-foreground: oklch(0.5963 0.2413 25.3350);
-  --destructive: oklch(0.6188 0.2376 25.7658);
+  --accent: oklch(24.809% 0.10917 271.287);
+  --accent-foreground: oklch(51.045% 0.16487 263.221);
+  --destructive: oklch(51.045% 0.16487 263.221);
   --destructive-foreground: oklch(1.0000 0 0);
   --border: oklch(0.2674 0.0047 248.0045);
   --input: oklch(0.3020 0.0288 244.8244);
-  --ring: oklch(0.6298 0.2208 18.9129);
-  --chart-1: oklch(0.5963 0.2413 25.3350);
-  --chart-2: oklch(0.6073 0.2428 7.0322);
-  --chart-3: oklch(0.4934 0.1995 24.8763);
-  --chart-4: oklch(0.6725 0.2160 19.8974);
-  --chart-5: oklch(0.6338 0.2098 37.3435);
+  --ring: oklch(51.045% 0.16487 263.221);
+  --chart-1: oklch(51.045% 0.16487 263.221);
+  --chart-2: oklch(51.045% 0.16487 263.221);
+  --chart-3: oklch(51.045% 0.16487 263.221);
+  --chart-4: oklch(51.045% 0.16487 263.221);
+  --chart-5: oklch(51.045% 0.16487 263.221);
   --sidebar: oklch(0.2097 0.0080 274.5332);
   --sidebar-foreground: oklch(0.8853 0 0);
-  --sidebar-primary: oklch(0.5963 0.2413 25.3350);
+  --sidebar-primary: oklch(51.045% 0.16487 263.221);
   --sidebar-primary-foreground: oklch(1.0000 0 0);
-  --sidebar-accent: oklch(0.1989 0.0614 24.6590);
-  --sidebar-accent-foreground: oklch(0.5963 0.2413 25.3350);
+  --sidebar-accent: oklch(24.809% 0.10917 271.287);
+  --sidebar-accent-foreground: oklch(51.045% 0.16487 263.221);
   --sidebar-border: oklch(0.3795 0.0220 240.5943);
-  --sidebar-ring: oklch(0.6298 0.2208 18.9129);
+  --sidebar-ring: oklch(51.045% 0.16487 263.221);
   --font-sans: Poppins, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Space Mono, monospace;
@@ -359,7 +359,7 @@ body {
 .mermaid-chart .node ellipse,
 .mermaid-chart .node polygon {
   fill: white !important;
-  stroke: #ED0226 !important;
+  stroke: #315fc3 !important;
   stroke-width: 2px !important;
 }
 
@@ -418,7 +418,7 @@ body {
 .dark .mermaid-chart .node ellipse,
 .dark .mermaid-chart .node polygon {
   fill: white !important;
-  stroke: #ED0226 !important;
+  stroke: #315fc3 !important;
 }
 
 .dark .mermaid-chart .node .label {

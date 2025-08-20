@@ -325,7 +325,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 }
                 
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-semibold">Lamarin AI</span>
+                  <span className="text-base font-semibold">rAIkrut</span>
                   {userType && (
                     <span className="text-xs font-light text-muted-foreground">
                       ({userType === 'admin' ? 'Admin' : 'Applicant'})

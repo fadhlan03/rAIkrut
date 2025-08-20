@@ -52,7 +52,7 @@ export function LoginForm({
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
                 <p className="text-balance text-muted-foreground">
-                  Login to your Lamarin AI account
+                  Login to your rAIkrut account
                 </p>
               </div>
               {error && (
@@ -65,7 +65,7 @@ export function LoginForm({
                 <Input
                   id="email"
                   type="email"
-                  placeholder="mail@lamarin.ai"
+                  placeholder="mail@rAIkrut"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
