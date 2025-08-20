@@ -1,0 +1,22 @@
+[
+    {
+      "origin": [
+        "http://localhost:3000",
+        "https://iykra-git-dev-enaiblr.vercel.app/",
+        "https://iykra.vercel.app",
+        "https://iykra-dev.vercel.app",
+        "https://meeting-ai-demo.vercel.app/",
+        "https://deckwiki.vercel.app",
+        "https://deckwiki-dev.vercel.app/",
+        "https://synapsus.vercel.app/",
+        "https://latih-ai.vercel.app",
+        "https://lamarin.vercel.app",
+        "https://lamarin-dev.vercel.app",
+        "https://lamarin.dataisolv.com",
+        "https://lamarin.iykra.com"
+      ],
+      "method": ["PUT", "OPTIONS", "GET", "HEAD"],
+      "responseHeader": ["Content-Type"],
+      "maxAgeSeconds": 3600
+    }
+  ]

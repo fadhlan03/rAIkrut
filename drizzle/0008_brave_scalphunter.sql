@@ -1,0 +1,1 @@
+ALTER TABLE "scoring_results" ADD COLUMN "skills_completeness" jsonb;

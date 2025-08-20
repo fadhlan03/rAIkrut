@@ -1,0 +1,1 @@
+ALTER TABLE "scoring_results" ADD COLUMN "overall_summary" text NOT NULL;

@@ -1,0 +1,286 @@
+// Resume Scoring System Database Schema
+
+// Users and Authentication
+Table users {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  email varchar [unique, not null]
+  password_hash varchar [not null]
+  full_name varchar [not null]
+  type user_type [not null, default: 'applicant']
+  indexes {
+    email
+  }
+}
+
+// Departments
+Table departments {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  created_by uuid [ref: > users.id, not null]
+  name varchar [not null]
+  description text
+  email varchar
+  upper_dept uuid [ref: > departments.id]
+  lower_dept jsonb
+  indexes {
+    name
+    upper_dept
+  }
+}
+
+// Job Vacancies
+Table job_vacancies {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  created_by uuid [ref: > users.id, not null]
+  title varchar [not null]
+  description text [not null]
+  job_desc jsonb
+  requirements jsonb [not null]
+  benefits jsonb
+  info text
+  status varchar [not null, default: 'draft']
+  attribute varchar
+  industry varchar
+  dept_id uuid [ref: > departments.id]
+  dept_position integer
+  indexes {
+    dept_id
+  }
+}
+
+// Onboarding Content
+Table onboarding_content {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  job_id uuid [ref: > job_vacancies.id, unique, not null]
+  created_by uuid [ref: > users.id, not null]
+  welcome_content jsonb [not null]
+  company_content jsonb [not null]
+  team_members jsonb [not null]
+  form_fields jsonb [not null]
+  documents jsonb [not null]
+  finish_content jsonb
+  indexes {
+    job_id
+  }
+}
+
+// Onboarding Completion Tracking
+Table onboarding_completion {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  candidate_id uuid [ref: > candidates.id, not null]
+  onboarding_content_id uuid [ref: > onboarding_content.id, not null]
+  status onboarding_status [not null, default: 'not_started']
+  completed_steps jsonb [not null, default: '[]']
+  form_responses jsonb [not null, default: '{}']
+  current_step varchar [default: 'welcome']
+  started_at timestamp
+  completed_at timestamp
+  indexes {
+    (candidate_id, onboarding_content_id) [unique]
+    candidate_id
+    onboarding_content_id
+  }
+}
+
+// Candidates
+Table candidates {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  full_name varchar [not null]
+  email varchar [not null]
+  phone varchar
+  birthdate date
+  job_interest jsonb
+  education jsonb
+  work_experience jsonb
+  org_experience jsonb
+  summary text
+  indexes {
+    email
+  }
+}
+
+// Resumes
+Table resumes {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  candidate_id uuid [ref: > candidates.id, not null]
+  file_url varchar [not null]
+  file_name varchar [not null]
+  file_type varchar [not null]
+  file_size integer [not null]
+  parsed_content jsonb [not null]
+  indexes {
+    candidate_id
+  }
+}
+
+// Job Applications
+Table job_applications {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  job_id uuid [ref: > job_vacancies.id, not null]
+  candidate_id uuid [ref: > candidates.id, not null]
+  status application_status [not null]
+  referral_name varchar
+  referral_email varchar
+  referral_position varchar
+  referral_dept varchar
+  indexes {
+    (job_id, candidate_id) [unique]
+  }
+}
+
+// Scoring Results
+Table scoring_results {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  application_id uuid [ref: > job_applications.id, unique, not null]
+  overall_score decimal [not null]
+  overall_summary text [not null]
+  experience_score decimal [not null]
+  experience_review text
+  education_score decimal [not null]
+  education_review text
+  skills_score decimal [not null]
+  skills_review text
+  role_fit_score decimal [not null]
+  role_fit_review text
+  certifications_score decimal [not null]
+  certifications_review text
+  project_impact_score decimal [not null]
+  project_impact_review text
+  soft_skills_score decimal [not null]
+  soft_skills_review text
+  decision text
+  skills_completeness jsonb
+  indexes {
+    application_id [unique]
+  }
+}
+
+// Recordings
+Table recordings {
+  id uuid [pk]
+  timestamp timestamp [not null, default: `now()`]
+  transcript jsonb
+  uri varchar(255)
+  speaker_metadata jsonb
+  duration integer
+  upload_status varchar(50)
+}
+
+// Reports
+Table reports {
+  id uuid [pk]
+  timestamp timestamp [not null, default: `now()`]
+  answers jsonb
+  clarity jsonb
+  relevance jsonb
+  depth jsonb
+  comm_style jsonb
+  cultural_fit jsonb
+  attention_to_detail jsonb
+  language_proficiency jsonb
+  star_method jsonb
+}
+
+// Calls
+Table calls {
+  id uuid [pk]
+  timestamp timestamp [not null, default: `now()`]
+  user_id uuid [ref: > users.id]
+  application_id uuid [ref: > job_applications.id]
+  system_prompt text
+  notes text
+  recording_id uuid [ref: > recordings.id]
+  report_id uuid [ref: > reports.id]
+  result varchar(50)
+  challenge_verified boolean [not null, default: false]
+  indexes {
+    application_id
+  }
+}
+
+// Candidate Verifications
+Table candidate_verifications {
+  id uuid [pk]
+  created_at timestamp [not null, default: `now()`]
+  updated_at timestamp [not null, default: `now()`]
+  candidate_id uuid [ref: > candidates.id, not null]
+  original_video_url varchar(512)
+  original_photo_url varchar(512)
+  original_audio_url varchar(512)
+  test_video_url varchar(512)
+  test_photo_url varchar(512)
+  test_audio_url varchar(512)
+  verification_status verification_status [not null, default: 'pending']
+  deepfake_score decimal
+  face_verification_score decimal
+  voice_verification_score decimal
+  verification_metadata jsonb
+  rejection_reason text
+  verified_at timestamp
+  original_media_uploaded_at timestamp
+  test_media_uploaded_at timestamp
+  indexes {
+    candidate_id
+    verification_status
+    created_at
+  }
+}
+
+// Job Search Benchmarks
+Table job_search_benchmarks {
+  id uuid [pk]
+  timestamp timestamp [not null, default: `now()`]
+  user_id uuid [ref: > users.id]
+  search_role_name varchar [not null]
+  search_industry varchar [not null]
+  creativity decimal [not null]
+  results jsonb [not null]
+  indexes {
+    user_id
+    timestamp
+  }
+}
+
+Enum user_type {
+  "admin"
+  "applicant"
+}
+
+Enum application_status {
+  "Pending"
+  "Reviewed"
+  "Interviewing"
+  "Shortlisted"
+  "Offered"
+  "Rejected"
+  "Hired"
+  "Withdrawn"
+  "On Hold"
+  "Onboard"
+}
+
+Enum onboarding_status {
+  "not_started"
+  "in_progress"
+  "completed"
+  "abandoned"
+}
+
+Enum verification_status {
+  "pending"
+  "processing"
+  "verified"
+  "rejected"
+  "failed"
+}
+
